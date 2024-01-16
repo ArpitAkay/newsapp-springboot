@@ -1,2 +1,5 @@
 newsapi:
-  key: d04c0f779e834647ad627984bd5406c7
+  key: bb6846d07af44e88b8f3d2ea0a920da4
+
+cors:
+  origin: https://newsappakay.netlify.app
