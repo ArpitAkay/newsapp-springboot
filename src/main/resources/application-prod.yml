@@ -1,5 +1,7 @@
 newsapi:
-  key: d04c0f779e834647ad627984bd5406c7
+  key: bb6846d07af44e88b8f3d2ea0a920da4
 
 cors:
   origin: https://newsappakay.netlify.app
+
+  Access to fetch at 'https://newsapp-v7oq.onrender.com/api/v1/news?searchQuery=Current+affairs&page=1&pageSize=20' from origin 'https://newsappakay.netlify.app' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource. If an opaque response serves your needs, set the request's mode to 'no-cors' to fetch the resource with CORS disabled.
