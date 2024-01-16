@@ -12,6 +12,7 @@ import org.springframework.web.client.RestTemplate;
 
 @Service
 public class NewsServiceImpl implements NewsService {
+    public static final String REMOVED = "[Removed]";
 
     private final RestTemplate restTemplate;
     private final String apiKey;
@@ -51,13 +52,15 @@ public class NewsServiceImpl implements NewsService {
 
         News news = restTemplate.exchange(url, HttpMethod.GET, httpEntity, News.class).getBody();
 
+        if(news == null) return new News();
+
         news.getArticles().removeIf(article -> {
-                return article.getAuthor() == null
-                || article.getTitle() == null || article.getTitle().equals("[Removed]")
-                || article.getUrl() == null || article.getDescription().equals("[Removed]")
-                || article.getUrlToImage() == null
+                return article.getAuthor() == null || article.getAuthor().equals(REMOVED)
+                || article.getTitle() == null || article.getTitle().equals(REMOVED)
+                || article.getUrl() == null || article.getUrl().equals(REMOVED)
+                || article.getUrlToImage() == null || article.getUrlToImage().equals(REMOVED)
                 || article.getPublishedAt() == null
-                || article.getContent() == null;
+                || article.getContent() == null || article.getContent().equals(REMOVED);
                 }
         );
 
